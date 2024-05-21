@@ -25,7 +25,7 @@
               <li><button class="dropdown-item" type="submit">Logout</button></li>
             </ul>
           </div>
-          <button class="btn btn-dark ms-3" type="submit">Logout</button>
+          <button class="btn btn-danger ms-3" type="submit"><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
         </form>
       </div>
     </div>
