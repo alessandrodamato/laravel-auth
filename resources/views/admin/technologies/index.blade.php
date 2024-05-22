@@ -80,11 +80,6 @@
     </div>
   </div>
 
-  <script>
-    function editSubmit(id){
-      const form = document.getElementById(`form-edit-${id}`);
-      form.submit();
-    }
-  </script>
+  @include('admin.partials.edit-submit')
 
 @endsection
