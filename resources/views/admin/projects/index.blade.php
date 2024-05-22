@@ -21,6 +21,7 @@
           <th scope="col">Creator</th>
           <th scope="col">Objective</th>
           <th scope="col">Description</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -31,6 +32,9 @@
           <td>{{$project->creator}}</td>
           <td>{{$project->objective}}</td>
           <td>{{$project->description}}</td>
+          <td>
+
+          </td>
         </tr>
         @empty
         <tr>

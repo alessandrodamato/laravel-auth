@@ -92,13 +92,31 @@ class TechnologyController extends Controller
         'name.min' => 'Il nome deve avere almeno :min caratteri',
         'name.max' => 'Il nome deve avere massimo :max caratteri'
       ]);
+
+      $exists = Technology::where('name', $request->name)->first();
+        if($exists){
+
+          return redirect()->route('admin.technologies.index')->with('error', 'Il nome inserito è già esistente');
+
+        } else{
+
+          $valid_data['slug'] = Helpers::generateSlug($valid_data['name'], new Technology());
+
+          $technology->update($valid_data);
+
+          return redirect()->route('admin.technologies.index')->with('success', 'Tecnologia modificata correttamente');;
+
+        }
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Technology $technology)
     {
-        //
+        $technology->delete();
+
+        return redirect()->route('admin.technologies.index')->with('success', 'Tecnologia eliminata correttamente');;
     }
 }

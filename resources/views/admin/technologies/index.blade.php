@@ -45,7 +45,7 @@
             @forelse ($data as $item)
             <tr>
               <td>
-                <form action="{{route('admin.technologies.update', $item)}}" method="POST" id="form-edit-{{$item->id}}">
+                <form id="form-edit-{{$item->id}}" action="{{route('admin.technologies.update', $item)}}" method="POST">
                   @csrf
                   @method('PUT')
                   <input class="w-100" type="text" value="{{$item->name}}" name="name">
@@ -53,6 +53,11 @@
               </td>
               <td class="text-center">
                 <button type="submit" onclick="editSubmit({{$item->id}})" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></button>
+                <form action="{{route('admin.technologies.destroy', $item)}}" method="POST" class="d-inline-block">
+                  @csrf
+                  @method('DELETE')
+                    <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                </form>
               </td>
             </tr>
             @empty
