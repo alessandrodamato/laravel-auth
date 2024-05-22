@@ -10,7 +10,7 @@
 
 @section('content')
 
-<h1 class="text-center mb-5">Admin - Types</h1>
+<h1 class="text-center mb-5">Types</h1>
 
 <div class="container">
 

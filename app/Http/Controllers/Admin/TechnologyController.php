@@ -57,7 +57,7 @@ class TechnologyController extends Controller
 
           $new_item->save();
 
-          return redirect()->route('admin.technologies.index')->with('success', 'Tecnologia inserita correttamente');;
+          return redirect()->route('admin.technologies.index')->with('success', 'Tecnologia inserita correttamente');
 
         }
     }
@@ -104,7 +104,7 @@ class TechnologyController extends Controller
 
           $technology->update($valid_data);
 
-          return redirect()->route('admin.technologies.index')->with('success', 'Tecnologia modificata correttamente');;
+          return redirect()->route('admin.technologies.index')->with('success', 'Tecnologia modificata correttamente');
 
         }
 
