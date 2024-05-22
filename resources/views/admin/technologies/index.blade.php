@@ -10,7 +10,7 @@
 
 @section('content')
 
-  <h1 class="text-center my-5">Admin - Technologies</h1>
+  <h1 class="text-center mb-5">Admin - Technologies</h1>
 
   <div class="container">
 
@@ -53,7 +53,7 @@
               </td>
               <td class="text-center">
                 <button type="submit" onclick="editSubmit({{$item->id}})" class="btn btn-warning"><i class="fa-solid fa-pencil"></i></button>
-                <form action="{{route('admin.technologies.destroy', $item)}}" method="POST" class="d-inline-block">
+                <form onsubmit="return confirm('Sei sicuro di voler eliminare {{$item->name}} ?')" action="{{route('admin.technologies.destroy', $item)}}" method="POST" class="d-inline-block">
                   @csrf
                   @method('DELETE')
                     <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>

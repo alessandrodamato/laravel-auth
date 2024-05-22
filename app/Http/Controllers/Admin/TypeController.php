@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Type;
+use App\Functions\Helpers;
 
 class TypeController extends Controller
 {
@@ -31,7 +32,33 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+        'name' => 'required|min:2|max:100'
+      ],
+      [
+        'name.required' => 'Inserire il nome',
+        'name.min' => 'Il nome deve avere almeno :min caratteri',
+        'name.max' => 'Il nome deve avere massimo :max caratteri'
+      ]);
+
+      $exists = Type::where('name', $request->name)->first();
+      if($exists){
+
+        return redirect()->route('admin.types.index')->with('error', 'Il nome inserito è già esistente');
+
+      } else{
+
+        $form_data = $request->all();
+
+        $new_item = new Type();
+        $new_item->name = $form_data['name'];
+        $new_item->slug = Helpers::generateSlug($new_item->name, new Type());
+
+        $new_item->save();
+
+        return redirect()->route('admin.types.index')->with('success', 'Tipo inserito correttamente');;
+
+      }
     }
 
     /**
@@ -53,16 +80,41 @@ class TypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Type $type)
     {
-        //
+
+      $valid_data = $request->validate([
+        'name' => 'required|min:2|max:100'
+      ],
+      [
+        'name.required' => 'Inserire il nome',
+        'name.min' => 'Il nome deve avere almeno :min caratteri',
+        'name.max' => 'Il nome deve avere massimo :max caratteri'
+      ]);
+
+      $exists = Type::where('name', $request->name)->first();
+        if($exists){
+
+          return redirect()->route('admin.types.index')->with('error', 'Il nome inserito è già esistente');
+
+        } else{
+
+          $valid_data['slug'] = Helpers::generateSlug($valid_data['name'], new Type());
+
+          $type->update($valid_data);
+
+          return redirect()->route('admin.types.index')->with('success', 'Tipo modificato correttamente');
+
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Type $type)
     {
-        //
+      $type->delete();
+
+      return redirect()->route('admin.types.index')->with('success', 'Tipo eliminato correttamente');
     }
 }

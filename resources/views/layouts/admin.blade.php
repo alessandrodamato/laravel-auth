@@ -12,7 +12,7 @@
 
   @include('admin.partials.header')
 
-  <main>
+  <main class="py-5">
     @yield('content')
   </main>
 

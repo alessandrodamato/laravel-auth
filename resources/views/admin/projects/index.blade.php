@@ -10,7 +10,7 @@
 
 @section('content')
 
-  <h1 class="text-center my-5">Admin - Projects</h1>
+  <h1 class="text-center mb-5">Admin - Projects</h1>
 
   <div class="container">
     <table class="table">
