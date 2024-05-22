@@ -12,6 +12,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('admin.projects.index')}}">Progetti</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.technologies.index')}}">Tecnologie</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.types.index')}}">Tipi</a>
+          </li>
         </ul>
         <form action="{{route('logout')}}" method="POST" class="d-flex" role="search">
           @csrf

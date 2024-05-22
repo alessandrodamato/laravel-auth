@@ -4,19 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Project;
+use App\Models\Type;
 
-class ProjectController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(){
+    public function index()
+    {
+      $data = Type::all();
 
-      $projects = Project::all();
-
-      return view('admin.projects.index', compact('projects'));
-
+      return view('admin.types.index', compact('data'));
     }
 
     /**
