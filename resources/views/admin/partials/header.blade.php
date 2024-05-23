@@ -7,21 +7,15 @@
             <a class="nav-link" href="{{route('home')}}">Vai al sito</a>
           </li>
           <li class="nav-item dropdown">
-            <button class="btn nav-link dropdown-toggle border-0" data-bs-toggle="dropdown" aria-expanded="false">
+            <a href="{{route('admin.dashboard')}}" class="btn nav-link dropdown-toggle border-0" data-bs-toggle="dropdown" aria-expanded="false">
               Dashboard
-            </button>
+            </a>
             <ul class="dropdown-menu dropdown-menu-dark">
               <li><a class="dropdown-item" href="{{route('admin.projects.index')}}">Progetti</a></li>
               <li><a class="dropdown-item" href="{{route('admin.technologies.index')}}">Tecnologie</a></li>
               <li><a class="dropdown-item" href="{{route('admin.types.index')}}">Tipi</a></li>
             </ul>
           </li>
-          {{-- <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.technologies.index')}}">Tecnologie</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.types.index')}}">Tipi</a>
-          </li> --}}
         </ul>
         <form action="{{route('logout')}}" method="POST" class="d-flex" role="search">
           @csrf
