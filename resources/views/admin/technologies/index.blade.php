@@ -71,6 +71,7 @@
                 <td><input class="w-100" type="text" placeholder="Aggiungi" name="name"></td>
                 <td class="text-center">
                   <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
+                  <button type="reset" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
                 </td>
               </form>
             </tr>

@@ -52,12 +52,13 @@
           <form class="d-inline-block" action="{{route('admin.projects.store')}}" method="POST">
             @csrf
             <td><strong>#</strong></td>
-            <td><input class="w-100" type="text" placeholder="Aggiungi nome" name="name"></td>
-            <td><input class="w-100" type="text" placeholder="Aggiungi creatore" name="creator"></td>
-            <td><input class="w-100" type="text" placeholder="Aggiungi obiettivo" name="objective"></td>
-            <td><input class="w-100" type="text" placeholder="Aggiungi una descrizione" name="description"></td>
+            <td><input class="w-100 add-project" type="text" placeholder="Aggiungi nome" name="name" value="{{old('name')}}"></td>
+            <td><input class="w-100 add-project" type="text" placeholder="Aggiungi creatore" name="creator" value="{{old('creator')}}"></td>
+            <td><input class="w-100 add-project" type="text" placeholder="Aggiungi obiettivo" name="objective" value="{{old('objective')}}"></td>
+            <td><input class="w-100 add-project" type="text" placeholder="Aggiungi una descrizione" name="description" value="{{old('description')}}"></td>
             <td class="text-center">
               <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i></button>
+              <button onclick="formReset()" type="reset" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
             </td>
           </form>
         </tr>
@@ -91,5 +92,6 @@
   </div>
 
   @include('admin.partials.edit-submit')
+  @include('admin.partials.form-reset')
 
 @endsection
