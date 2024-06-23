@@ -67,7 +67,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Consegna
 
----- **Sviluppo** ----
 1. Creare il DB
 2. Fare la migration
 3. Nelle view aggiungere le cartelle guest e admin
@@ -81,5 +80,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 11. Modificare RouteServiceProvider in modo che la rotta admin di default sia ‘/admin’
 12. Nell’header del layout admin collegare la home della dashboard, la home pubblica, mettere il nome dell’utente loggato e il bottone funzionante logout
 
-BONUS
+**Bonus**  
 Creazione del modello `Project` con relativa migrazione, seeder, controller e rotte e stampare la index  dei progetti (protetta da middleware)
